@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Gradients</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            padding: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .box {
+            height: 200px;
+            border-radius: 15px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 22px;
+            font-weight: bold;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+
+        /* =========================
+           1. BASIC LINEAR GRADIENT
+        ========================== */
+
+        .linear {
+            background: linear-gradient(red, blue);
+        }
+
+
+        /* =========================
+           2. LINEAR - RIGHT
+        ========================== */
+
+        .linear-right {
+            background: linear-gradient(to right, red, blue);
+        }
+
+
+        /* =========================
+           3. LINEAR - LEFT
+        ========================== */
+
+        .linear-left {
+            background: linear-gradient(to left, red, blue);
+        }
+
+
+        /* =========================
+           4. LINEAR - TOP
+        ========================== */
+
+        .linear-top {
+            background: linear-gradient(to top, red, blue);
+        }
+
+
+        /* =========================
+           5. LINEAR - BOTTOM RIGHT
+        ========================== */
+
+        .diagonal {
+            background: linear-gradient(
+                to bottom right,
+                red,
+                blue
+            );
+        }
+
+
+        /* =========================
+           6. LINEAR - DEGREE
+        ========================== */
+
+        .degree {
+            background: linear-gradient(
+                45deg,
+                red,
+                blue
+            );
+        }
+
+
+        /* =========================
+           7. MULTIPLE COLORS
+        ========================== */
+
+        .multiple {
+            background: linear-gradient(
+                to right,
+                red,
+                orange,
+                yellow,
+                green,
+                blue,
+                purple
+            );
+        }
+        /* =========================
+           8. COLOR STOPS
+        ========================== */
+
+        .color-stop {
+            background: linear-gradient(
+                to right,
+                red 0%,
+                yellow 50%,
+                blue 100%
+            );
+        }
+
+
+        /* =========================
+           9. HARD STOP
+        ========================== */
+
+        .hard-stop {
+            background: linear-gradient(
+                to right,
+                red 50%,
+                blue 50%
+            );
+        }
+
+
+        /* =========================
+           10. RADIAL GRADIENT
+        ========================== */
+
+        .radial {
+            background: radial-gradient(
+                red,
+                blue
+            );
+        }
+
+
+        /* =========================
+           11. RADIAL CIRCLE
+        ========================== */
+
+        .radial-circle {
+            background: radial-gradient(
+                circle,
+                red,
+                blue
+            );
+        }
+
+
+        /* =========================
+           12. RADIAL MULTIPLE COLORS
+        ========================== */
+
+        .radial-multiple {
+            background: radial-gradient(
+                circle,
+                red,
+                orange,
+                yellow,
+                blue
+            );
+        }
+
+
+        /* =========================
+           13. RADIAL POSITION
+        ========================== */
+
+        .radial-position {
+            background: radial-gradient(
+                circle at top left,
+                red,
+                blue
+            );
+        }
+
+
+        /* =========================
+           14. EXACT RADIAL POSITION
+        ========================== */
+
+        .radial-exact {
+            background: radial-gradient(
+                circle at 30% 40%,
+                red,
+                blue
+            );
+        }
+
+
+        /* =========================
+           15. CONIC GRADIENT
+        ========================== */
+
+        .conic {
+            background: conic-gradient(
+                red,
+                yellow,
+                green,
+                blue,
+                red
+            );
+        }
+
+
+        /* =========================
+           16. CONIC WITH DEGREE
+        ========================== */
+
+        .conic-degree {
+            background: conic-gradient(
+                red 0deg,
+                yellow 90deg,
+                green 180deg,
+                blue 270deg,
+                red 360deg
+            );
+        }
+
+
+        /* =========================
+           17. CONIC STARTING ANGLE
+        ========================== */
+
+        .conic-angle {
+            background: conic-gradient(
+                from 45deg,
+                red,
+                blue,
+                green
+            );
+        }
+
+
+        /* =========================
+           18. REPEATING LINEAR
+        ========================== */
+
+        .repeat-linear {
+            background: repeating-linear-gradient(
+                45deg,
+                red 0px,
+                red 20px,
+                blue 20px,
+                blue 40px
+            );
+        }
+
+
+        /* =========================
+           19. REPEATING LINEAR 2
+        ========================== */
+
+        .repeat-linear-2 {
+            background: repeating-linear-gradient(
+                90deg,
+                black 0px,
+                black 10px,
+                white 10px,
+                white 20px
+            );
+        }
+
+
+        /* =========================
+           20. REPEATING RADIAL
+        ========================== */
+
+        .repeat-radial {
+            background: repeating-radial-gradient(
+                circle,
+                red 0px,
+                red 20px,
+                blue 20px,
+                blue 40px
+            );
+        }
+
+
+        /* =========================
+           21. REPEATING CONIC
+        ========================== */
+
+        .repeat-conic {
+            background: repeating-conic-gradient(
+                red 0deg 20deg,
+                blue 20deg 40deg
+            );
+        }
+
+
+        /* =========================
+           22. TRANSPARENT GRADIENT
+        ========================== */
+
+        .transparent {
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                black
+            );
+        }
+
+
+        /* =========================
+           23. BEAUTIFUL GRADIENT
+        ========================== */
+
+        .beautiful {
+            background: linear-gradient(
+                135deg,
+                #667eea,
+                #764ba2
+            );
+        }
+
+
+        /* =========================
+           24. SUNSET GRADIENT
+        ========================== */
+
+        .sunset {
+            background: linear-gradient(
+                135deg,
+                #ff512f,
+                #dd2476
+            );
+        }
+
+
+        /* =========================
+           25. OCEAN GRADIENT
+        ========================== */
+
+        .ocean {
+            background: linear-gradient(
+                135deg,
+                #2193b0,
+                #6dd5ed
+            );
+        }
+
+
+        /* =========================
+           26. INSTAGRAM GRADIENT
+        ========================== */
+
+        .instagram {
+            background: linear-gradient(
+                45deg,
+                #feda75,
+                #fa7e1e,
+                #d62976,
+                #962fbf,
+                #4f5bd5
+            );
+        }
+
+
+        /* =========================
+           27. GRADIENT TEXT
+        ========================== */
+
+        .gradient-text {
+            background: linear-gradient(
+                90deg,
+                #ff512f,
+                #dd2476
+            );
+
+            background-clip: text;
+            -webkit-background-clip: text;
+
+            color: transparent;
+        }
+
+
+        /* =========================
+           28. GRADIENT BORDER
+        ========================== */
+
+        .gradient-border {
+            background:
+                linear-gradient(#111, #111) padding-box,
+                linear-gradient(
+                    90deg,
+                    #ff00cc,
+                    #3333ff
+                ) border-box;
+
+            border: 4px solid transparent;
+        }
+
+
+        /* =========================
+           29. IMAGE + GRADIENT
+        ========================== */
+
+        .image-gradient {
+            background:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.2),
+                    rgba(0, 0, 0, 0.9)
+                ),
+                url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        /* =========================
+           30. GLASS + GRADIENT
+        ========================== */
+
+        .glass-gradient {
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff00cc,
+                    #3333ff
+                );
+
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 800px) {
+
+            .container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>CSS Gradients</h1>
+
+    <div class="container">
+
+        <div class="box linear">
+            Linear Gradient
+        </div>
+
+        <div class="box linear-right">
+            Linear Right
+        </div>
+
+        <div class="box linear-left">
+            Linear Left
+        </div>
+
+        <div class="box linear-top">
+            Linear Top
+        </div>
+
+        <div class="box diagonal">
+            Diagonal
+        </div>
+
+        <div class="box degree">
+            45 Degree
+        </div>
+
+        <div class="box multiple">
+            Multiple Colors
+        </div>
+
+        <div class="box color-stop">
+            Color Stops
+        </div>
+
+        <div class="box hard-stop">
+            Hard Stop
+        </div>
+
+        <div class="box radial">
+            Radial
+        </div>
+
+        <div class="box radial-circle">
+            Radial Circle
+        </div>
+
+        <div class="box radial-multiple">
+            Radial Multiple
+        </div>
+
+        <div class="box radial-position">
+            Radial Position
+        </div>
+
+        <div class="box radial-exact">
+            Exact Position
+        </div>
+
+        <div class="box conic">
+            Conic
+        </div>
+
+        <div class="box conic-degree">
+            Conic Degree
+        </div>
+
+        <div class="box conic-angle">
+            Conic Angle
+        </div>
+
+        <div class="box repeat-linear">
+            Repeating Linear
+        </div>
+
+        <div class="box repeat-linear-2">
+            Repeating Linear 2
+        </div>
+
+        <div class="box repeat-radial">
+            Repeating Radial
+        </div>
+
+        <div class="box repeat-conic">
+            Repeating Conic
+        </div>
+
+        <div class="box transparent">
+            Transparent
+        </div>
+
+        <div class="box beautiful">
+            Beautiful Gradient
+        </div>
+
+        <div class="box sunset">
+            Sunset
+        </div>
+
+        <div class="box ocean">
+            Ocean
+        </div>
+
+        <div class="box instagram">
+            Instagram
+        </div>
+
+        <div class="box gradient-text">
+            Gradient Text
+        </div>
+
+        <div class="box gradient-border">
+            Gradient Border
+        </div>
+
+        <div class="box image-gradient">
+            Image + Gradient
+        </div>
+
+        <div class="box glass-gradient">
+            Glass Gradient
+        </div>
+
+    </div>
+
+</body>
+</html>
